@@ -1,0 +1,26 @@
+{
+  "Resources": [
+    {
+      "ResourceName": "SampleUser",
+      "Parameters": [
+        { "Name": "UserPrincipalName", "DataType": "String",  "Mandatory": true,  "AllowedValues": [] },
+        { "Name": "DisplayName",       "DataType": "String",  "Mandatory": false, "AllowedValues": [] },
+        { "Name": "AccountEnabled",    "DataType": "Boolean", "Mandatory": false, "AllowedValues": [] },
+        { "Name": "UserType",          "DataType": "String",  "Mandatory": false, "AllowedValues": ["Guest","Member"] }
+      ]
+    },
+    {
+      "ResourceName": "SamplePolicy",
+      "Parameters": [
+        { "Name": "DisplayName", "DataType": "String",  "Mandatory": true, "AllowedValues": [] },
+        { "Name": "IsEnabled",   "DataType": "Boolean", "Mandatory": true, "AllowedValues": [] }
+      ]
+    },
+    {
+      "ResourceName": "MissingCoverage",
+      "Parameters": [
+        { "Name": "DisplayName", "DataType": "String", "Mandatory": true, "AllowedValues": [] }
+      ]
+    }
+  ]
+}

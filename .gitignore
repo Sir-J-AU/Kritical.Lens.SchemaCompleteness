@@ -1,0 +1,19 @@
+# Kritical.Lens.SchemaCompleteness .gitignore
+
+# Emitted receipts / reports
+receipts/
+reports/
+*.log
+
+# PowerShell state
+*.psm1c
+*.bak.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/*.log
+.vs/
+*.suo
