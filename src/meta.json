@@ -1,0 +1,21 @@
+{
+  "name": "Kritical.Lens.SchemaCompleteness",
+  "category": "linter",
+  "purpose": "Schema completeness checker — asserts every declared field is populated + every referenced table exists + every table has its expected companion index/permset entries.",
+  "audits": [
+    "schema-field-coverage",
+    "schema-table-coverage",
+    "schema-permset-completeness"
+  ],
+  "dependsOn": [
+    "Krit.OmniFramework",
+    "Kritical.Lens.CodeGraph"
+  ],
+  "testable": true,
+  "pathTemplate": "ALBrain/contracts/schema-completeness-<utc>.json",
+  "sink": "disk",
+  "retention": "days 90",
+  "wave": ".5177",
+  "source": "operator",
+  "schemaRef": "schema/schema-completeness.schema.json"
+}
