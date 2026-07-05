@@ -19,12 +19,21 @@ function _KriticalLensExtractParamMap {
             if ($attr.TypeName.Name -eq 'Parameter') {
                 foreach ($na in $attr.NamedArguments) {
                     if ($na.ArgumentName -eq 'Mandatory') {
-                        $mandatory = ($na.Argument -and $na.Argument.Extent.Text -match '\$true')
+                        # .5231 (lens-hunt): shorthand [Parameter(Mandatory)] omits the
+                        # expression (ExpressionOmitted = $true) and means $true; only
+                        # an explicit '=$false' should be treated as not mandatory.
+                        if ($na.ExpressionOmitted) {
+                            $mandatory = $true
+                        } else {
+                            $mandatory = ($na.Argument -and $na.Argument.Extent.Text -match '\$true')
+                        }
                     }
                 }
             } elseif ($attr.TypeName.Name -eq 'ValidateSet') {
                 foreach ($arg in $attr.PositionalArguments) {
-                    $v = $arg.Extent.Text -replace "^'|'$",''
+                    # .5231 (lens-hunt): strip either single or double surrounding
+                    # quotes so [ValidateSet("x")] compares equal to schema values.
+                    $v = $arg.Extent.Text -replace '^["'']|["'']$',''
                     $validateSet += $v
                 }
             }
