@@ -5,7 +5,8 @@
   "audits": [
     "schema-field-coverage",
     "schema-table-coverage",
-    "schema-permset-completeness"
+    "schema-permset-completeness",
+    "al-mirror-field-coverage"
   ],
   "dependsOn": [
     "Krit.OmniFramework",
