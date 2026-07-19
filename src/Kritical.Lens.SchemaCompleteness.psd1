@@ -11,7 +11,8 @@
     CompatiblePSEditions = @('Core')
 
     FunctionsToExport = @(
-        'Invoke-KriticalLensSchemaCompleteness'
+        'Invoke-KriticalLensSchemaCompleteness',
+        'Invoke-KriticalLensAlSchemaCompleteness'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

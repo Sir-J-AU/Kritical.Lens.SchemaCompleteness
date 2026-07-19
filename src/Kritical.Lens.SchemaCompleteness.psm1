@@ -10,4 +10,4 @@ foreach ($sub in @('Private','Public')) {
         ForEach-Object { . $_.FullName }
 }
 
-Export-ModuleMember -Function 'Invoke-KriticalLensSchemaCompleteness'
+Export-ModuleMember -Function 'Invoke-KriticalLensSchemaCompleteness', 'Invoke-KriticalLensAlSchemaCompleteness'

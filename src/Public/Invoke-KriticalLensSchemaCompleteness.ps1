@@ -84,7 +84,17 @@ function Invoke-KriticalLensSchemaCompleteness {
     }
 
     Write-Verbose ("Kritical.Lens.SchemaCompleteness: loading inventory {0}" -f $InventoryPath)
-    $inv = Get-Content -LiteralPath $InventoryPath -Raw | ConvertFrom-Json
+    try {
+        $inv = Get-Content -LiteralPath $InventoryPath -Raw | ConvertFrom-Json -ErrorAction Stop
+    } catch {
+        throw "Failed to parse schema inventory JSON '$InventoryPath': $($_.Exception.Message)"
+    }
+
+    # .5231 (lens-hunt): a syntactically valid JSON without a Resources key would
+    # silently audit zero resources; fail loudly instead of reporting a hollow pass.
+    if ($null -eq $inv -or -not ($inv.PSObject.Properties.Name -contains 'Resources')) {
+        throw "Schema inventory '$InventoryPath' has no 'Resources' property; expected an object with a Resources array."
+    }
 
     $resources = @($inv.Resources | Where-Object { $_.ResourceName })
     Write-Verbose ("Kritical.Lens.SchemaCompleteness: {0} resources in inventory" -f $resources.Count)
