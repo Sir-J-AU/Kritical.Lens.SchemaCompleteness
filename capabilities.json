@@ -1,0 +1,16 @@
+[
+  {
+    "task": "Prove a PowerShell module set (e.g. Microsoft365DSC-style resources) covers every parameter/type/Mandatory/AllowedValue in a target schema inventory",
+    "description": "Six gates per resource: primitive exists (New-<Prefix><Resource>), every schema parameter present, Mandatory matches, DataType maps to a compatible PS type, ValidateSet covers every AllowedValue, and a Get-<Prefix><Resource> read-side accessor exists. Discovers covering functions via the `# COVERS-DSC-RESOURCE: <ResourceName>` marker comment.",
+    "script": "src/Public/Invoke-KriticalLensSchemaCompleteness.ps1",
+    "usage": "Invoke-KriticalLensSchemaCompleteness -InventoryPath m365dsc-inventory.json -ModuleDir 'D:\\dev\\Kritical-M365DSC\\src' -OutputMd out.md -OutputJson out.json",
+    "tags": ["lens", "schema", "m365dsc", "completeness", "powershell"]
+  },
+  {
+    "task": "Prove a Pax8-to-BC AL mirror table set carries every field the corresponding Pax8 OpenAPI schema declares",
+    "description": "AL sibling of Invoke-KriticalLensSchemaCompleteness. Four gates per mirror (mirror table exists / every upstream scalar field present / flattened nested-ref sub-fields present / every upstream child array has its own mirror table), reading the Pax8 partner OpenAPI spec live (no hard-coded field list) so a newly-added upstream property surfaces as newly-missing.",
+    "script": "src/Public/Invoke-KriticalLensAlSchemaCompleteness.ps1",
+    "usage": "Invoke-KriticalLensAlSchemaCompleteness -SpecPath reference/pax8-openapi/partner-endpoints.json -AlRoot 'D:\\dev\\SomeConnector'",
+    "tags": ["lens", "schema", "al", "pax8", "business-central", "completeness"]
+  }
+]
