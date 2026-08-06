@@ -8,7 +8,13 @@ $ParserPath = 'C:\Users\joshl\OneDrive - Kritical Pty Ltd\Github\KRTPax8ToShopif
 $ParserLoaded = Test-Path -LiteralPath $ParserPath
 $ConnectorRoot = 'C:\Users\joshl\OneDrive - Kritical Pty Ltd\Github\Kritical.AL.D365BC.Connector.Pax8-to-Storefront'
 $ConnectorSpec = 'C:\Users\joshl\OneDrive - Kritical Pty Ltd\Github\KRTPax8ToShopifyConnector\reference\pax8-openapi\partner-endpoints.json'
-$LiveAvailable = $ParserLoaded -and (Test-Path -LiteralPath $ConnectorRoot) -and (Test-Path -LiteralPath $ConnectorSpec)
+$ConnectorMirrorPresent = $false
+if (Test-Path -LiteralPath $ConnectorRoot) {
+    $ConnectorMirrorPresent = $null -ne (Get-ChildItem -LiteralPath $ConnectorRoot -Recurse -Filter '*.al' -ErrorAction SilentlyContinue |
+        Select-String -Pattern 'table\s+60100\s+"Pax8 Pricing Mirror"' -List -ErrorAction SilentlyContinue |
+        Select-Object -First 1)
+}
+$LiveAvailable = $ParserLoaded -and (Test-Path -LiteralPath $ConnectorRoot) -and (Test-Path -LiteralPath $ConnectorSpec) -and $ConnectorMirrorPresent
 
 BeforeAll {
     $repo = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
