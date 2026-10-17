@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="12" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="2" invalid="0" date="2026-08-07" time="02:07:39">
+  <environment nunit-version="2.5.8.0" user-domain="STACKTRACE" machine-name="STACKTRACE" platform="Microsoft Windows 11 Home|C:\WINDOWS|\Device\Harddisk0\Partition3" os-version="10.0.26200" clr-version="9.0.8" user="joshl" cwd="C:\Users\joshl\OneDrive - Kritical Pty Ltd\Github\Kritical.Lens\components\ps-analyzer\Kritical.Lens.SchemaCompleteness" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Ignored" success="True" time="3.3456" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\Users\joshl\OneDrive - Kritical Pty Ltd\Github\Kritical.Lens\components\ps-analyzer\Kritical.Lens.SchemaCompleteness\tests\Kritical.Lens.SchemaCompleteness.Smoke.Tests.ps1" executed="True" result="Success" success="True" time="1.3306" asserts="0" description="C:\Users\joshl\OneDrive - Kritical Pty Ltd\Github\Kritical.Lens\components\ps-analyzer\Kritical.Lens.SchemaCompleteness\tests\Kritical.Lens.SchemaCompleteness.Smoke.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Kritical.Lens.SchemaCompleteness — module smoke" executed="True" result="Success" success="True" time="0.5995" asserts="0" description="Kritical.Lens.SchemaCompleteness — module smoke">
+            <results>
+              <test-case description="has a valid psd1 manifest" name="Kritical.Lens.SchemaCompleteness — module smoke.has a valid psd1 manifest" time="0.3188" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="has non-empty exported functions (or documents why)" name="Kritical.Lens.SchemaCompleteness — module smoke.has non-empty exported functions (or documents why)" time="0.1574" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="ships a meta.json matching the Emitter Registration Contract" name="Kritical.Lens.SchemaCompleteness — module smoke.ships a meta.json matching the Emitter Registration Contract" time="0.0684" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\joshl\OneDrive - Kritical Pty Ltd\Github\Kritical.Lens\components\ps-analyzer\Kritical.Lens.SchemaCompleteness\tests\Unit\Invoke-KriticalLensAlSchemaCompleteness.Tests.ps1" executed="True" result="Ignored" success="True" time="2.0151" asserts="0" description="C:\Users\joshl\OneDrive - Kritical Pty Ltd\Github\Kritical.Lens\components\ps-analyzer\Kritical.Lens.SchemaCompleteness\tests\Unit\Invoke-KriticalLensAlSchemaCompleteness.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Invoke-KriticalLensAlSchemaCompleteness — fixture" executed="True" result="Success" success="True" time="1.1109" asserts="0" description="Invoke-KriticalLensAlSchemaCompleteness — fixture">
+            <results>
+              <test-case description="returns a result object with Summary + ByMirror + Rows" name="Invoke-KriticalLensAlSchemaCompleteness — fixture.returns a result object with Summary + ByMirror + Rows" time="0.0475" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="the fully-covered Pricing mirror (60100) reports 100% coverage" name="Invoke-KriticalLensAlSchemaCompleteness — fixture.the fully-covered Pricing mirror (60100) reports 100% coverage" time="0.0657" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="the gapped Company mirror (60120) reports exactly the 2 seeded gaps" name="Invoke-KriticalLensAlSchemaCompleteness — fixture.the gapped Company mirror (60120) reports exactly the 2 seeded gaps" time="0.0447" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="raises a MISSING-UPSTREAM-FIELD finding for Company.status" name="Invoke-KriticalLensAlSchemaCompleteness — fixture.raises a MISSING-UPSTREAM-FIELD finding for Company.status" time="0.0187" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="raises a MISSING-FLATTENED-FIELD finding for the Address.city column" name="Invoke-KriticalLensAlSchemaCompleteness — fixture.raises a MISSING-FLATTENED-FIELD finding for the Address.city column" time="0.0147" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="does NOT demand a separate mirror for Pricing.rates (flattened Rate)" name="Invoke-KriticalLensAlSchemaCompleteness — fixture.does NOT demand a separate mirror for Pricing.rates (flattened Rate)" time="0.0175" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="emits Markdown + JSON when requested" name="Invoke-KriticalLensAlSchemaCompleteness — fixture.emits Markdown + JSON when requested" time="0.3277" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Invoke-KriticalLensAlSchemaCompleteness — real connector repo smoke" executed="True" result="Ignored" success="True" time="1.1505" asserts="0" description="Invoke-KriticalLensAlSchemaCompleteness — real connector repo smoke">
+            <results>
+              <test-case description="finds the real Pax8 mirror tables (M1 pass count &gt; 0)" name="Invoke-KriticalLensAlSchemaCompleteness — real connector repo smoke.finds the real Pax8 mirror tables (M1 pass count &gt; 0)" time="0.0132" asserts="0" success="False" result="Ignored" executed="False" />
+              <test-case description="produces a per-mirror coverage row for the Pricing Mirror (60100)" name="Invoke-KriticalLensAlSchemaCompleteness — real connector repo smoke.produces a per-mirror coverage row for the Pricing Mirror (60100)" time="0.0044" asserts="0" success="False" result="Ignored" executed="False" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
